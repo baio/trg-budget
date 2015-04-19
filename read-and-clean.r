@@ -8,6 +8,18 @@ budget[,c(3:6)] <-  budget[,c(3:6)] / 1000
 #order
 budget <-  budget[order(-budget$year_1),]
 
+#calc diffrences between years, loss current related to previous
+dif <- diff(as.matrix(budget[,c(3:6)])) * -1
+dif <- rbind(dif, c(0,0,0,0))
+dif <- as.data.frame(dif)
+pdif <- dif / budget[,c(3:6)]
+
+#aggr by row
+#diffrence between pervious and current year
+budget[, c(7:10)] <- dif
+#diffrence between pervious and current year in percents
+budget[, c(11:14)] <- pdif
+
 #here rows ordered from 2015 downto 2001
 #1-year,2:13-monthly,14-total
 inflation <- read.csv("./data/inf-2015-2001.csv", stringsAsFactors=FALSE, header=F)
@@ -38,7 +50,7 @@ frm <- matrix(unlist(rep(inf$adj,6)), nrow=6)
 
 #calc adjusted budget values 
 budget.adj <- budget
-budget.adj[,c(3:6)] <- budget[,c(3:6)] * (1 + frm / 100)
+budget.adj[,c(3:14)] <- budget[,c(3:4)] * (1 + frm / 100)
 
 budget$kind <- factor("raw")
 budget.adj$kind <- factor("adj")
