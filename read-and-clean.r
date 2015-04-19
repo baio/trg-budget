@@ -50,7 +50,7 @@ frm <- matrix(unlist(rep(inf$adj,6)), nrow=6)
 
 #calc adjusted budget values 
 budget.adj <- budget
-budget.adj[,c(3:14)] <- budget[,c(3:4)] * (1 + frm / 100)
+budget.adj[,c(3:14)] <- budget[,c(3:14)] * (1 + frm / 100)
 
 budget$kind <- factor("raw")
 budget.adj$kind <- factor("adj")
