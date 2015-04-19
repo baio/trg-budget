@@ -13,6 +13,8 @@ budget <-  budget[order(-budget$year_1),]
 inflation <- read.csv("./data/inf-2015-2001.csv", stringsAsFactors=FALSE, header=F)
 inflation$month.mean <-  rowMeans(inflation[, c(2:13)])
 
+#shift values row down to calulate diffs betwee years
+
 #adjust inflation
 #take total year inaflation and monthly mean 
 inf <- inflation[,c(14,15)]
@@ -30,6 +32,23 @@ inf <-inf[c(1:nrow(budget)),]
 #create aux frame to fast multiply numeric columns
 frm <- matrix(unlist(rep(inf$adj,6)), nrow=6)
 
+#create discounted (ajusetd) and raw factors for each row
+#raw - mean no valude modification on the columsn was made
+#adjusted - values include infaltion
+
 #calc adjusted budget values 
-budget[, c(7:10)] <- budget[,c(3:6)] * (1 + frm / 100)
+budget.adj <- budget
+budget.adj[,c(3:6)] <- budget[,c(3:6)] * (1 + frm / 100)
+
+budget$kind <- factor("raw")
+budget.adj$kind <- factor("adj")
+
+budget.m <- rbind(budget, budget.adj)
+#budget.m$year_1 <- factor(budget.m$year_1)
+#order from latest year
+#budget.m <-  budget.m[order(-budget.m$year_1),]
+
+#budget.adj <- budget[,c(3:6)] * (1 + frm / 100)
+#budgeta.d[, c(1:2)] <- budget[,c(3:6)] * (1 + frm / 100)
+
 
