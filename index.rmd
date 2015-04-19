@@ -19,7 +19,7 @@ output: html_document
 
 [табличный формат](https://docs.google.com/spreadsheets/d/1I8uIIRErRdgT-JmSbRNK66w1y-y2P5PahTEUQBPYqag/edit?usp=sharing)
 
-[csv формат]()
+[csv формат](https://raw.githubusercontent.com/baio/trg-budget/master/data/trg_budget.csv)
 
 ###Инфляция
 
@@ -27,7 +27,7 @@ output: html_document
 
 [табличный формат](https://docs.google.com/spreadsheets/d/1I8uIIRErRdgT-JmSbRNK66w1y-y2P5PahTEUQBPYqag/edit#gid=1417059804)
 
-[csv формат]()
+[csv формат](https://raw.githubusercontent.com/baio/trg-budget/master/data/inf-2015-2001.csv)
 
 ###Исходный код документа
 
