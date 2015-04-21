@@ -80,31 +80,41 @@ source("read-and-clean.r")
 
 ``` {r, echo=F} 
 
-budget[, c(2, 3)]
+x <- as.data.frame(budget$full_gain, row.names=c("2015", "2014", "2013", "2012", "2011"))
+colnames(x) <- c("")
+x
 
 ```
 
 ## Динамика изменения дохода бюджета относительно предыдущего года
 
-![Доход бюджета](plots/plot-relative-gain.png)
+![Доход бюджета](plots/plot-gain-relative.png)
 
 Динамика изменения бюджета относительно предыдущего года (100 тыс)
 
 ``` {r, echo=F} 
 
-budget[, c(2, 7)]
+x <- as.data.frame(budget$full_gain.1, row.names=c("2015", "2014", "2013", "2012", "2011"))
+colnames(x) <- c("")
+x
+
 
 ```
 
 ## Динамика изменения дохода бюджета относительно предыдущего года в процентах
 
-![Доход бюджета](plots/plot-gain-percent.png)
+![Доход бюджета](plots/plot-gain-relative-percent.png)
 
 Динамика изменения бюджета относительно предыдущего года (%)
 
 ``` {r, echo=F} 
 
-budget[, c(2, 15)]
+x <- as.data.frame(budget$full_gain.2, row.names=c("2015", "2014", "2013", "2012", "2011"))
+
+colnames(x) <- c("gain")
+x$gain <- x$gain * 100
+colnames(x) <- c("")
+x
 
 ```
 
@@ -117,6 +127,9 @@ budget[, c(2, 15)]
 
 ``` {r, echo=F} 
 
-budget[, c(2, 15)]
+x <- as.data.frame(cum_sum_raw[c(2:5),]$cum_p, row.names=c("2015", "2014", "2013", "2012"))
+colnames(x) <- c("gain")
+x$gain <- x$gain * 100
+x
 
 ```

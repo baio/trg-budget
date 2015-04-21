@@ -22,8 +22,8 @@ c +
   facet_grid(. ~ kind) +
   labs(title = "Измение дохода бюджета относительно предыдущего года") + 
   labs(x = "год") + 
-  labs(y = "общий объем дохода относительно предыдущего года (млн. рублей)") +
+  labs(y = "Падение дохода относительно предыдущего года (млн. рублей)") +
   theme(legend.position="none")
 
-dev.copy(png, file = "plots/plot-relative-gain.png")
+dev.copy(png, file = "plots/plot-gain-relative.png")
 dev.off()

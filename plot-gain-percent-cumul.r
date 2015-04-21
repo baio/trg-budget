@@ -37,7 +37,7 @@ c +
   facet_grid(. ~ kind) +
   labs(title = "Динамика падения дохода бюджета относительно 2011г") + 
   labs(x = "год") + 
-  labs(y = "Динамика падения дохода бюджета относительно 2011г (%)") +
+  labs(y = "падение дохода бюджета относительно 2011г (%)") +
   theme(legend.position="none")
 
 dev.copy(png, file = "plots/plot-gain-percent-cumul.png")

@@ -20,10 +20,10 @@ c +
   scale_y_continuous(label=y_formatter) + 
   #  coord_flip() +
   facet_grid(. ~ kind) +
-  labs(title = "Измение дохода бюджета относительно предыдущего года (в процетах)") + 
+  labs(title = "Измение дохода бюджета относительно предыдущего года (в %)") + 
   labs(x = "год") + 
-  labs(y = "общий объем дохода относительно предыдущего года в %") +
+  labs(y = "падение дохода относительно предыдущего года (в %)") +
   theme(legend.position="none")
 
-dev.copy(png, file = "plots/plot-gain-percent.png")
+dev.copy(png, file = "plots/plot-gain-relative-percent.png")
 dev.off()
